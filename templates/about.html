@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mb-4 shadow">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/static/{{ product.profile_image }}" class="img-fluid rounded-start" alt="{{ product.modelname }}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h2 class="card-title">{{ product.modelname }}</h2>
+                <h4 class="text-muted">{{ product.price|int }}₾</h4>
+                <p class="card-text mt-3">{{ product.description }}</p>
+                <p class="card-text mt-3">{{ product.productbrand }}</p>
+                <p class="card-text mt-3">{{ product.devicetype }}</p>
+                <p class="card-text mt-3">{{ product.devicestorage }}</p>
+                <p class="card-text mt-3">{{ product.processor }}</p>
+                <a href="/" class="btn btn-outline-primary mt-3">Back to Home</a>
+                <a href="{{ url_for('edit_product', product_id=product.id) }}" class="btn btn-outline-primary mt-3">Edit</a>
+                <form method="post" action="{{ url_for('delete_product', product_id=product.id) }}" style="display:inline">
+                    <button type="submit" class="btn btn-danger mt-3">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

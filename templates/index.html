@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+    {% for product in products %}
+    <div class="col">
+        <div class="card h-100">
+            <img src="/static/{{ product.profile_image }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ product.modelname }}</h5>
+                <p class="card-text">{{ product.price|int }}₾</p>
+                <a href="/about/{{ product.id }}" class="btn btn-secondary mt-auto">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
