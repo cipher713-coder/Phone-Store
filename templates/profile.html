@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mx-auto mt-5 p-4 bg-dark" style="max-width: 400px;">
+    <img src="/static/{{ user.profile_picture }}" class="card-img-top rounded" alt="Profile Picture">
+    <div class="card-body text-center bg-dark">
+        <h4 class="card-title text-white">{{ user.username }}</h4>
+        <p class="card-text text-white">This is your profile page.</p>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+        <a href="/editprofile" class="btn btn-outline-primary">Edit Profile</a>
+        <form action="{{ url_for('delete_profile') }}" method="post"
+            onsubmit="return confirm('Are you sure you want to delete your profile? This action cannot be undone.')">
+            <button type="submit" class="btn btn-danger mt-2">Delete Profile</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

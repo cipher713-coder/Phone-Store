@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container bg-dark shadow">
+    <div class="d-flex w-50 flex-column mx-auto row mt-5 p-5">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            {{ form.productbrand(class="form-control mb-2") }}
+            {{ form.devicetype(class="form-control mb-2") }}
+            {{ form.modelname(class="form-control mb-2", placeholder=form.modelname.label.text) }}
+            {{ form.devicestorage(class="form-control mb-2") }}
+            {{ form.processor(class="form-control mb-2", placeholder=form.processor.label.text) }}
+            {{ form.price(class="form-control mb-2", placeholder="Enter price in ₾") }}
+            {{ form.profile_image.label }}
+            {{ form.profile_image(class="form-control") }}
+
+            {{ form.upload(class="btn btn-success mt-5") }}
+        </form>
+    </div>
+</div>
+{% endblock %}

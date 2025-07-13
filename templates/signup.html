@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container bg-dark shadow">
+    <div class="d-flex w-50 flex-column mx-auto row mt-5 p-5">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            {{ form.username(class="form-control mb-2", placeholder=form.username.label.text) }}
+            {{ form.password(class="form-control mb-2", placeholder=form.password.label.text) }}
+            {{ form.profile_picture.label }}
+            {{ form.profile_picture(class="form-control") }}
+
+            {{ form.upload(class="btn btn-success mt-5") }}
+        </form>
+    </div>
+</div>
+{% endblock %}
